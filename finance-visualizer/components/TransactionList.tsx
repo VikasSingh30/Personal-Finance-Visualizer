@@ -1,30 +1,45 @@
-'use client'
+"use client";
 
-type Transaction = {
+import { Button } from "@/components/ui/button";
+
+interface Transaction {
   id: string;
-  description: string;
   amount: number;
   date: string;
-};
+  description: string;
+}
 
-const dummyTransactions: Transaction[] = [
-  { id: "1", description: "Groceries", amount: 45.0, date: "2025-05-01" },
-  { id: "2", description: "Rent", amount: 1200, date: "2025-05-03" },
-];
+interface TransactionListProps {
+  transactions: Transaction[];
+  onDelete: (id: string) => void;
+}
 
-export default function TransactionList() {
+export default function TransactionList({ transactions, onDelete }: TransactionListProps) {
+  if (transactions.length === 0) {
+    return <p>No transactions yet.</p>;
+  }
+
   return (
-    <div className="p-4 border rounded-xl">
-      <h2 className="text-xl font-bold mb-2">Transactions</h2>
-      <ul className="space-y-2">
-        {dummyTransactions.map((txn) => (
-          <li key={txn.id} className="flex justify-between border-b pb-1">
-            <span>{txn.description}</span>
-            <span>₹{txn.amount}</span>
-            <span>{txn.date}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className="space-y-3">
+      {transactions.map((t) => (
+        <li
+          key={t.id}
+          className="flex justify-between items-center border rounded p-3"
+        >
+          <div>
+            <p className="font-semibold">${t.amount.toFixed(2)}</p>
+            <p className="text-sm text-muted-foreground">{t.date}</p>
+            <p className="text-sm">{t.description}</p>
+          </div>
+          <Button
+            variant="destructive"
+            size="sm"
+            onClick={() => onDelete(t.id)}
+          >
+            Delete
+          </Button>
+        </li>
+      ))}
+    </ul>
   );
 }
