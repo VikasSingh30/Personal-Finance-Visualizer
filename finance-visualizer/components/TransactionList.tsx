@@ -7,6 +7,7 @@ interface Transaction {
   amount: number;
   date: string;
   description: string;
+  category: string;
 }
 
 interface TransactionListProps {
@@ -14,7 +15,10 @@ interface TransactionListProps {
   onDelete: (id: string) => void;
 }
 
-export default function TransactionList({ transactions, onDelete }: TransactionListProps) {
+export default function TransactionList({
+  transactions,
+  onDelete,
+}: TransactionListProps) {
   if (transactions.length === 0) {
     return <p>No transactions yet.</p>;
   }
@@ -30,6 +34,7 @@ export default function TransactionList({ transactions, onDelete }: TransactionL
             <p className="font-semibold">${t.amount.toFixed(2)}</p>
             <p className="text-sm text-muted-foreground">{t.date}</p>
             <p className="text-sm">{t.description}</p>
+            <p className="text-sm italic text-primary">{t.category}</p>
           </div>
           <Button
             variant="destructive"

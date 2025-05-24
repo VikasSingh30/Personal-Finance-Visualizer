@@ -3,15 +3,32 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
 
 interface TransactionFormProps {
-  onAdd: (amount: string, date: string, description: string) => void;
+  onAdd: (
+    amount: string,
+    date: string,
+    description: string,
+    category: string
+  ) => void;
+  categories: string[];
 }
 
-export default function TransactionForm({ onAdd }: TransactionFormProps) {
+export default function TransactionForm({
+  onAdd,
+  categories,
+}: TransactionFormProps) {
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
   const [error, setError] = useState("");
 
   function handleSubmit(e: React.FormEvent) {
@@ -29,14 +46,19 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
       setError("Please enter a description.");
       return;
     }
+    if (!category) {
+      setError("Please select a category.");
+      return;
+    }
 
     setError("");
-    onAdd(amount, date, description);
+    onAdd(amount, date, description, category);
 
     // Reset form
     setAmount("");
     setDate("");
     setDescription("");
+    setCategory("");
   }
 
   return (
@@ -62,9 +84,19 @@ export default function TransactionForm({ onAdd }: TransactionFormProps) {
         onChange={(e) => setDescription(e.target.value)}
         required
       />
-      {error && (
-        <p className="text-red-600 text-sm font-medium">{error}</p>
-      )}
+      <Select value={category} onValueChange={setCategory}>
+        <SelectTrigger>
+          <SelectValue placeholder="Select Category" />
+        </SelectTrigger>
+        <SelectContent>
+          {categories.map((cat) => (
+            <SelectItem key={cat} value={cat}>
+              {cat}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      {error && <p className="text-red-600 text-sm font-medium">{error}</p>}
       <Button type="submit">Add Transaction</Button>
     </form>
   );
