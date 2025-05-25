@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💰 Personal Finance Visualizer
 
-## Getting Started
+A beautiful and intuitive personal finance dashboard that helps you track your transactions, view spending summaries, and set category-specific budgets — all in a clean, responsive interface.
 
-First, run the development server:
+![weblink](https://personal-finance-visualizer-sandy.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧠 Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This app allows users to:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ✅ Add & delete transactions
+- 📆 View weekly and monthly spending summaries
+- 🗂 Categorize expenses (e.g., Food, Rent, Utilities)
+- 📊 Visualize category-wise spending with budgets
+- 🔄 Interact with smooth, dynamic charts
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Category         | Stack                            |
+|------------------|----------------------------------|
+| Framework        | [Next.js 15](https://nextjs.org) |
+| Language         | TypeScript                       |
+| UI Components    | [shadcn/ui](https://ui.shadcn.com) |
+| Charts           | [Recharts](https://recharts.org) |
+| Date Utilities   | [date-fns](https://date-fns.org) |
+| Styling          | Tailwind CSS                     |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📁 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+finance-visualizer/
+│
+├── app/
+│   └── page.tsx             # Main app logic & UI
+│
+├── components/
+│   └── ui/                  # UI components from shadcn/ui (Button, Card, Input, etc.)
+│
+├── public/                  # Static assets
+│
+├── tailwind.config.js       # Tailwind styling config
+├── tsconfig.json            # TypeScript configuration
+└── package.json             # NPM dependencies and scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## ✨ Features In Detail
+
+### ➕ Add Transactions
+Enter an amount, date, description, and category to record an expense. Clean error handling ensures all fields are filled.
+
+### 🧾 View Transactions
+Every transaction is shown with an option to delete. Displayed with category, date, and amount.
+
+---
+
+## 📈 Charts & Insights
+
+#### 📆 Weekly and Monthly Charts
+Weekly: Summarizes all transactions within 7-day windows
+
+Monthly: Shows overall spend per month
+
+Interactive bar charts powered by Recharts
+
+#### 📊 Budget by Category
+Set individual budgets for each category (e.g., ₹5000 for Rent)
+
+Visual progress bars indicate how much you've spent vs. set budget
+
+Color-coded:
+
+   ✅ Green: Within budget
+
+   ❌ Red: Exceeded budget
+
+---
+
+## 🧱 UI Components Used
+
+| Component  | Description                       |
+| ---------- | --------------------------------- |
+| `Card`     | For section containers            |
+| `Input`    | For user text/number/date entry   |
+| `Button`   | For interactions like Add/Delete  |
+| `Select`   | For choosing transaction category |
+| `Progress` | For budget status visualization   |
+
+---
+
+### 📄 License
+MIT License © VikasSingh30
