@@ -2,7 +2,7 @@
 
 A beautiful and intuitive personal finance dashboard that helps you track your transactions, view spending summaries, and set category-specific budgets — all in a clean, responsive interface.
 
-![weblink](https://personal-finance-visualizer-sandy.vercel.app/)
+🔗 **Live Demo:**[personal-finance-visualizer.vercel.app](https://personal-finance-visualizer-sandy.vercel.app/)
 
 ---
 
