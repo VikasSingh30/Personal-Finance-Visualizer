@@ -33,19 +33,19 @@ This app allows users to:
 
 ## 📁 Project Structure
 
-finance-visualizer/
-│
-├── app/
-│   └── page.tsx             # Main app logic & UI
-│
-├── components/
-│   └── ui/                  # UI components from shadcn/ui (Button, Card, Input, etc.)
-│
-├── public/                  # Static assets
-│
-├── tailwind.config.js       # Tailwind styling config
-├── tsconfig.json            # TypeScript configuration
-└── package.json             # NPM dependencies and scripts
+finance-visualizer/<br>
+│<br>
+├── app/<br>
+│   └── page.tsx             # Main app logic & UI<br>
+│<br>
+├── components/<br>
+│   └── ui/                  # UI components from shadcn/ui (Button, Card, Input, etc.)<br>
+│<br>
+├── public/                  # Static assets<br>
+│<br>
+├── tailwind.config.js       # Tailwind styling config<br>
+├── tsconfig.json            # TypeScript configuration<br>
+└── package.json             # NPM dependencies and scripts<br>
 
 ---
 
